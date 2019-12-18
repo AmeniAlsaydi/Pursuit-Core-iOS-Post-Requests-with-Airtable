@@ -11,7 +11,7 @@ class ProjectsViewController: UIViewController {
     private var projects = [Project]() {
         didSet {
             projectsTableView.reloadData()
-            //a
+            
         }
     }
     
@@ -34,6 +34,7 @@ class ProjectsViewController: UIViewController {
         projectsTableView.dataSource = self
     }
     
+    // FOUND //=================================================
     private func loadData() {
         ProjectAPIClient.manager.getProjects { result in
             DispatchQueue.main.async { [weak self] in
@@ -64,7 +65,7 @@ extension ProjectsViewController: UITableViewDataSource {
         let project = projects[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath)
         cell.textLabel?.text = project.name
-        cell.detailTextLabel?.text = project.dueDate.description
+        cell.detailTextLabel?.text = project.dueDate?.description
         return cell
     }
 }
