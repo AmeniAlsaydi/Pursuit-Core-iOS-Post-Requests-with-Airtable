@@ -11,6 +11,7 @@ class ProjectsViewController: UIViewController {
     private var projects = [Project]() {
         didSet {
             projectsTableView.reloadData()
+            //a
         }
     }
     
